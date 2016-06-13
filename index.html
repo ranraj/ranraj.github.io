@@ -8140,58 +8140,7 @@ var _elm_lang$window$Window$subMap = F2(
 			});
 	});
 _elm_lang$core$Native_Platform.effectManagers['Window'] = {pkg: 'elm-lang/window', init: _elm_lang$window$Window$init, onEffects: _elm_lang$window$Window$onEffects, onSelfMsg: _elm_lang$window$Window$onSelfMsg, tag: 'sub', subMap: _elm_lang$window$Window$subMap};
-var _user$project$Main$cellStyle = _elm_lang$html$Html_Attributes$style(
-	_elm_lang$core$Native_List.fromArray(
-		[
-			{ctor: '_Tuple2', _0: 'margin', _1: '5px'},
-			{ctor: '_Tuple2', _0: 'border', _1: 'none'},
-			{ctor: '_Tuple2', _0: 'text-decoration', _1: 'none'},
-			{ctor: '_Tuple2', _0: 'box-shadow', _1: '0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)'}
-		]));
-var _user$project$Main$boardStyle = _elm_lang$html$Html_Attributes$style(
-	_elm_lang$core$Native_List.fromArray(
-		[
-			{ctor: '_Tuple2', _0: 'margin', _1: '5px'},
-			{ctor: '_Tuple2', _0: 'border', _1: 'none'},
-			{ctor: '_Tuple2', _0: 'text-decoration', _1: 'none'},
-			{ctor: '_Tuple2', _0: 'box-shadow', _1: '0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)'}
-		]));
-var _user$project$Main$notificationStyle = _elm_lang$html$Html_Attributes$style(
-	_elm_lang$core$Native_List.fromArray(
-		[
-			{ctor: '_Tuple2', _0: 'width', _1: '40%'},
-			{ctor: '_Tuple2', _0: 'height', _1: '40px'},
-			{ctor: '_Tuple2', _0: 'padding', _1: '10'},
-			{ctor: '_Tuple2', _0: 'font-size', _1: '2em'},
-			{ctor: '_Tuple2', _0: 'text-align', _1: 'center'}
-		]));
-var _user$project$Main$buttonStyle = _elm_lang$html$Html_Attributes$style(
-	_elm_lang$core$Native_List.fromArray(
-		[
-			{ctor: '_Tuple2', _0: 'color', _1: '#fff'},
-			{ctor: '_Tuple2', _0: 'border', _1: 'none'},
-			{ctor: '_Tuple2', _0: 'letter-spacing', _1: '.5px'},
-			{ctor: '_Tuple2', _0: 'text-transform', _1: 'uppercase'},
-			{ctor: '_Tuple2', _0: 'box-shadow', _1: '0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)'},
-			{ctor: '_Tuple2', _0: 'text-decoration', _1: 'none'},
-			{ctor: '_Tuple2', _0: 'background-color', _1: '#F44336'},
-			{ctor: '_Tuple2', _0: 'width', _1: '40%'},
-			{ctor: '_Tuple2', _0: 'height', _1: '40px'},
-			{ctor: '_Tuple2', _0: 'padding', _1: '10px 0'},
-			{ctor: '_Tuple2', _0: 'font-size', _1: '1em'},
-			{ctor: '_Tuple2', _0: 'text-align', _1: 'center'}
-		]));
-var _user$project$Main$toolStyle = _elm_lang$html$Html_Attributes$style(
-	_elm_lang$core$Native_List.fromArray(
-		[
-			{ctor: '_Tuple2', _0: 'width', _1: '100%'},
-			{ctor: '_Tuple2', _0: 'height', _1: '40px'},
-			{ctor: '_Tuple2', _0: 'padding', _1: '10px 0'},
-			{ctor: '_Tuple2', _0: 'font-size', _1: '1em'},
-			{ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
-			{ctor: '_Tuple2', _0: 'margin', _1: '0 auto'}
-		]));
-var _user$project$Main$winCellSequence = _elm_lang$core$Native_List.fromArray(
+var _user$project$Api$winCellSequence = _elm_lang$core$Native_List.fromArray(
 	[
 		_elm_lang$core$Native_List.fromArray(
 		[
@@ -8242,7 +8191,7 @@ var _user$project$Main$winCellSequence = _elm_lang$core$Native_List.fromArray(
 			{ctor: '_Tuple2', _0: 2, _1: 0}
 		])
 	]);
-var _user$project$Main$isSubsetOf = F2(
+var _user$project$Api$isSubsetOf = F2(
 	function (mainl, subl) {
 		isSubsetOf:
 		while (true) {
@@ -8263,13 +8212,16 @@ var _user$project$Main$isSubsetOf = F2(
 			}
 		}
 	});
-var _user$project$Main$px = function (v) {
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		_elm_lang$core$Basics$toString(v),
-		'px');
+var _user$project$Api$getWinnerBoardSequence = function (boardType) {
+	var _p2 = boardType;
+	if (_p2.ctor === 'WinBoard') {
+		return _p2._2;
+	} else {
+		return _elm_lang$core$Native_List.fromArray(
+			[]);
+	}
 };
-var _user$project$Main$filterCellsByPlayer = F2(
+var _user$project$Api$filterCellsByPlayer = F2(
 	function (player, cells) {
 		return A2(
 			_elm_lang$core$List$map,
@@ -8283,102 +8235,57 @@ var _user$project$Main$filterCellsByPlayer = F2(
 				},
 				cells));
 	});
-var _user$project$Main$whoWin = F3(
+var _user$project$Api$whoWin = F3(
 	function (player, cells, l) {
 		whoWin:
 		while (true) {
-			var _p2 = l;
-			if (_p2.ctor === '[]') {
+			var _p3 = l;
+			if (_p3.ctor === '[]') {
 				return _elm_lang$core$Maybe$Nothing;
 			} else {
-				var _p4 = _p2._0;
-				var _p3 = A2(
-					_user$project$Main$isSubsetOf,
-					A2(_user$project$Main$filterCellsByPlayer, player, cells),
-					_p4);
-				if (_p3 === true) {
-					return _elm_lang$core$Maybe$Just(_p4);
+				var _p5 = _p3._0;
+				var _p4 = A2(
+					_user$project$Api$isSubsetOf,
+					A2(_user$project$Api$filterCellsByPlayer, player, cells),
+					_p5);
+				if (_p4 === true) {
+					return _elm_lang$core$Maybe$Just(_p5);
 				} else {
-					var _v6 = player,
-						_v7 = cells,
-						_v8 = _p2._1;
-					player = _v6;
-					cells = _v7;
-					l = _v8;
+					var _v7 = player,
+						_v8 = cells,
+						_v9 = _p3._1;
+					player = _v7;
+					cells = _v8;
+					l = _v9;
 					continue whoWin;
 				}
 			}
 		}
 	});
-var _user$project$Main$statusNotification = function (status) {
-	var _p5 = status;
-	switch (_p5.ctor) {
-		case 'Default':
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_List.fromArray(
-					[
-						{ctor: '_Tuple2', _0: 'color', _1: 'orange'}
-					]),
-				_1: 'Start...'
-			};
-		case 'LastMove':
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_List.fromArray(
-					[
-						{ctor: '_Tuple2', _0: 'color', _1: '#2bbbad'}
-					]),
-				_1: A2(_elm_lang$core$Basics_ops['++'], 'LastMove - ', _p5._0)
-			};
-		case 'NotValidMove':
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_List.fromArray(
-					[
-						{ctor: '_Tuple2', _0: 'color', _1: '#E57373'}
-					]),
-				_1: A2(_elm_lang$core$Basics_ops['++'], 'Exception - ', _p5._0)
-			};
-		case 'GameResult':
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_List.fromArray(
-					[
-						{ctor: '_Tuple2', _0: 'color', _1: '#2bbbad'}
-					]),
-				_1: A2(_elm_lang$core$Basics_ops['++'], 'Result - ', _p5._0)
-			};
-		default:
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_List.fromArray(
-					[
-						{ctor: '_Tuple2', _0: 'color', _1: '#E57373'}
-					]),
-				_1: A2(_elm_lang$core$Basics_ops['++'], 'Error - ', _p5._0)
-			};
-	}
-};
-var _user$project$Main$Cell = F2(
+var _user$project$Api$Cell = F2(
 	function (a, b) {
 		return {position: a, player: b};
 	});
-var _user$project$Main$Model = F6(
-	function (a, b, c, d, e, f) {
-		return {cells: a, status: b, nextPlayer: c, boardType: d, lastMove: e, size: f};
+var _user$project$Api$ErrorBoard = F2(
+	function (a, b) {
+		return {ctor: 'ErrorBoard', _0: a, _1: b};
 	});
-var _user$project$Main$Empty = {ctor: 'Empty'};
-var _user$project$Main$isFinishedBoard = function (cells) {
-	return _elm_lang$core$List$isEmpty(
-		A2(
-			_elm_lang$core$List$filter,
-			function (x) {
-				return _elm_lang$core$Native_Utils.eq(x.player, _user$project$Main$Empty);
-			},
-			cells));
+var _user$project$Api$TieBoard = F2(
+	function (a, b) {
+		return {ctor: 'TieBoard', _0: a, _1: b};
+	});
+var _user$project$Api$WinBoard = F3(
+	function (a, b, c) {
+		return {ctor: 'WinBoard', _0: a, _1: b, _2: c};
+	});
+var _user$project$Api$PlayBoard = function (a) {
+	return {ctor: 'PlayBoard', _0: a};
 };
-var _user$project$Main$hasOccupied = F2(
+var _user$project$Api$EmptyBoard = function (a) {
+	return {ctor: 'EmptyBoard', _0: a};
+};
+var _user$project$Api$NoPlayer = {ctor: 'NoPlayer'};
+var _user$project$Api$hasOccupied = F2(
 	function (position, cells) {
 		var cell = _elm_lang$core$List$head(
 			A2(
@@ -8391,191 +8298,374 @@ var _user$project$Main$hasOccupied = F2(
 		if (_p6.ctor === 'Just') {
 			return _p6._0.player;
 		} else {
-			return _user$project$Main$Empty;
+			return _user$project$Api$NoPlayer;
 		}
 	});
-var _user$project$Main$defaultCells = _elm_lang$core$Native_List.fromArray(
+var _user$project$Api$isFinishedBoard = function (cells) {
+	return _elm_lang$core$List$isEmpty(
+		A2(
+			_elm_lang$core$List$filter,
+			function (x) {
+				return _elm_lang$core$Native_Utils.eq(x.player, _user$project$Api$NoPlayer);
+			},
+			cells));
+};
+var _user$project$Api$defaultCells = _elm_lang$core$Native_List.fromArray(
 	[
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 0, _1: 0},
-		_user$project$Main$Empty),
+		_user$project$Api$NoPlayer),
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 0, _1: 1},
-		_user$project$Main$Empty),
+		_user$project$Api$NoPlayer),
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 0, _1: 2},
-		_user$project$Main$Empty),
+		_user$project$Api$NoPlayer),
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 1, _1: 0},
-		_user$project$Main$Empty),
+		_user$project$Api$NoPlayer),
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 1, _1: 1},
-		_user$project$Main$Empty),
+		_user$project$Api$NoPlayer),
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 1, _1: 2},
-		_user$project$Main$Empty),
+		_user$project$Api$NoPlayer),
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 2, _1: 0},
-		_user$project$Main$Empty),
+		_user$project$Api$NoPlayer),
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 2, _1: 1},
-		_user$project$Main$Empty),
+		_user$project$Api$NoPlayer),
 		A2(
-		_user$project$Main$Cell,
+		_user$project$Api$Cell,
 		{ctor: '_Tuple2', _0: 2, _1: 2},
-		_user$project$Main$Empty)
+		_user$project$Api$NoPlayer)
 	]);
-var _user$project$Main$PlayerX = {ctor: 'PlayerX'};
-var _user$project$Main$PlayerO = {ctor: 'PlayerO'};
-var _user$project$Main$TieBoard = F2(
-	function (a, b) {
-		return {ctor: 'TieBoard', _0: a, _1: b};
-	});
-var _user$project$Main$WinBoard = F3(
-	function (a, b, c) {
-		return {ctor: 'WinBoard', _0: a, _1: b, _2: c};
-	});
-var _user$project$Main$PlayBoard = function (a) {
-	return {ctor: 'PlayBoard', _0: a};
-};
-var _user$project$Main$fetchGameResult = function (cells) {
-	var _p7 = A3(_user$project$Main$whoWin, _user$project$Main$PlayerO, cells, _user$project$Main$winCellSequence);
+var _user$project$Api$PlayerX = {ctor: 'PlayerX'};
+var _user$project$Api$PlayerO = {ctor: 'PlayerO'};
+var _user$project$Api$fetchGameResult = function (cells) {
+	var _p7 = A3(_user$project$Api$whoWin, _user$project$Api$PlayerO, cells, _user$project$Api$winCellSequence);
 	if (_p7.ctor === 'Just') {
-		return A3(_user$project$Main$WinBoard, cells, 'Player O Wins the Game', _p7._0);
+		return A3(_user$project$Api$WinBoard, cells, 'Player O Wins the Game', _p7._0);
 	} else {
-		var _p8 = A3(_user$project$Main$whoWin, _user$project$Main$PlayerX, cells, _user$project$Main$winCellSequence);
+		var _p8 = A3(_user$project$Api$whoWin, _user$project$Api$PlayerX, cells, _user$project$Api$winCellSequence);
 		if (_p8.ctor === 'Just') {
-			return A3(_user$project$Main$WinBoard, cells, 'Player X Wins the Game', _p8._0);
+			return A3(_user$project$Api$WinBoard, cells, 'Player X Wins the Game', _p8._0);
 		} else {
-			var _p9 = _user$project$Main$isFinishedBoard(cells);
+			var _p9 = _user$project$Api$isFinishedBoard(cells);
 			if (_p9 === true) {
-				return A2(_user$project$Main$TieBoard, cells, 'Game Tie');
+				return A2(_user$project$Api$TieBoard, cells, 'Game Tie');
 			} else {
-				return _user$project$Main$PlayBoard(cells);
+				return _user$project$Api$PlayBoard(cells);
 			}
 		}
 	}
 };
-var _user$project$Main$EmptyBoard = function (a) {
-	return {ctor: 'EmptyBoard', _0: a};
-};
-var _user$project$Main$Error = function (a) {
-	return {ctor: 'Error', _0: a};
-};
-var _user$project$Main$GameResult = function (a) {
-	return {ctor: 'GameResult', _0: a};
-};
-var _user$project$Main$NotValidMove = function (a) {
-	return {ctor: 'NotValidMove', _0: a};
-};
-var _user$project$Main$Default = {ctor: 'Default'};
-var _user$project$Main$modelInit = A6(
-	_user$project$Main$Model,
-	_user$project$Main$defaultCells,
-	_user$project$Main$Default,
-	_user$project$Main$PlayerO,
-	_user$project$Main$EmptyBoard(_user$project$Main$defaultCells),
-	{ctor: '_Tuple2', _0: 0, _1: 0},
-	A2(_elm_lang$window$Window$Size, 0, 0));
-var _user$project$Main$LastMove = function (a) {
-	return {ctor: 'LastMove', _0: a};
-};
-var _user$project$Main$buildStatusFromResult = F2(
-	function (boardType, position) {
-		var _p10 = boardType;
-		switch (_p10.ctor) {
-			case 'TieBoard':
-				return _user$project$Main$GameResult(_p10._1);
-			case 'WinBoard':
-				return _user$project$Main$GameResult(_p10._1);
-			case 'PlayBoard':
-				return _user$project$Main$LastMove(
-					_elm_lang$core$Basics$toString(position));
-			default:
-				return _user$project$Main$Default;
-		}
-	});
-var _user$project$Main$Failure = function (a) {
+var _user$project$Api$Failure = function (a) {
 	return {ctor: 'Failure', _0: a};
 };
-var _user$project$Main$Success = function (a) {
+var _user$project$Api$Success = function (a) {
 	return {ctor: 'Success', _0: a};
 };
-var _user$project$Main$plotPlayerCellOnBoard = F3(
+var _user$project$Api$plotPlayerCellOnBoard = F3(
 	function (player, position, cells) {
-		var _p11 = A2(_user$project$Main$hasOccupied, position, cells);
-		if (_p11.ctor === 'Empty') {
-			return _user$project$Main$Success(
+		var _p10 = A2(_user$project$Api$hasOccupied, position, cells);
+		if (_p10.ctor === 'NoPlayer') {
+			return _user$project$Api$Success(
 				A2(
 					_elm_lang$core$List$map,
 					function (cell) {
-						var _p12 = _elm_lang$core$Native_Utils.eq(position, cell.position);
-						if (_p12 === true) {
-							return A2(_user$project$Main$Cell, position, player);
+						var _p11 = _elm_lang$core$Native_Utils.eq(position, cell.position);
+						if (_p11 === true) {
+							return A2(_user$project$Api$Cell, position, player);
 						} else {
 							return cell;
 						}
 					},
 					cells));
 		} else {
-			return _user$project$Main$Failure('Invalid Move');
+			return _user$project$Api$Failure('Invalid Move');
 		}
 	});
-var _user$project$Main$updateBoardModel = F2(
+var _user$project$Api$updateBoardModel = F2(
 	function (model, position) {
 		var updatedModel = function () {
-			var _p13 = A3(_user$project$Main$plotPlayerCellOnBoard, model.nextPlayer, position, model.cells);
-			if (_p13.ctor === 'Success') {
-				var _p14 = _p13._0;
+			var _p12 = A3(_user$project$Api$plotPlayerCellOnBoard, model.nextPlayer, position, model.cells);
+			if (_p12.ctor === 'Success') {
+				var _p13 = _p12._0;
 				return _elm_lang$core$Native_Utils.update(
 					model,
 					{
-						cells: _p14,
+						cells: _p13,
 						lastMove: position,
-						nextPlayer: _elm_lang$core$Native_Utils.eq(model.nextPlayer, _user$project$Main$PlayerO) ? _user$project$Main$PlayerX : _user$project$Main$PlayerO,
-						boardType: _user$project$Main$fetchGameResult(_p14)
+						nextPlayer: _elm_lang$core$Native_Utils.eq(model.nextPlayer, _user$project$Api$PlayerO) ? _user$project$Api$PlayerX : _user$project$Api$PlayerO,
+						boardType: _user$project$Api$fetchGameResult(_p13)
 					});
 			} else {
 				return _elm_lang$core$Native_Utils.update(
 					model,
 					{
-						status: _user$project$Main$NotValidMove(_p13._0)
+						boardType: A2(_user$project$Api$ErrorBoard, model.cells, _p12._0)
 					});
 			}
 		}();
 		return updatedModel;
 	});
+var _user$project$Api$Error = function (a) {
+	return {ctor: 'Error', _0: a};
+};
+var _user$project$Api$GameResult = function (a) {
+	return {ctor: 'GameResult', _0: a};
+};
+var _user$project$Api$NotValidMove = function (a) {
+	return {ctor: 'NotValidMove', _0: a};
+};
+var _user$project$Api$Default = {ctor: 'Default'};
+var _user$project$Api$LastMove = function (a) {
+	return {ctor: 'LastMove', _0: a};
+};
+var _user$project$Api$buildStatusFromResult = F2(
+	function (boardType, position) {
+		var _p14 = boardType;
+		switch (_p14.ctor) {
+			case 'TieBoard':
+				return _user$project$Api$GameResult(_p14._1);
+			case 'WinBoard':
+				return _user$project$Api$GameResult(_p14._1);
+			case 'PlayBoard':
+				return _user$project$Api$LastMove(
+					_elm_lang$core$Basics$toString(position));
+			case 'EmptyBoard':
+				return _user$project$Api$Default;
+			default:
+				return _user$project$Api$NotValidMove(
+					_elm_lang$core$Basics$toString(_p14._1));
+		}
+	});
+var _user$project$Style$margin = {ctor: '_Tuple2', _0: 'margin', _1: '5px'};
+var _user$project$Style$boardBoxStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'margin', _1: '5px'},
+			{ctor: '_Tuple2', _0: 'border', _1: 'none'},
+			{ctor: '_Tuple2', _0: 'text-decoration', _1: 'none'},
+			{ctor: '_Tuple2', _0: 'box-shadow', _1: '0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)'}
+		]));
+var _user$project$Style$cellStyle = _user$project$Style$boardBoxStyle;
+var _user$project$Style$notificationStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'width', _1: '40%'},
+			{ctor: '_Tuple2', _0: 'height', _1: '40px'},
+			{ctor: '_Tuple2', _0: 'padding', _1: '10'},
+			{ctor: '_Tuple2', _0: 'font-size', _1: '2em'},
+			{ctor: '_Tuple2', _0: 'text-align', _1: 'center'}
+		]));
+var _user$project$Style$buttonStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'color', _1: '#fff'},
+			{ctor: '_Tuple2', _0: 'border', _1: 'none'},
+			{ctor: '_Tuple2', _0: 'letter-spacing', _1: '.5px'},
+			{ctor: '_Tuple2', _0: 'text-transform', _1: 'uppercase'},
+			{ctor: '_Tuple2', _0: 'box-shadow', _1: '0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)'},
+			{ctor: '_Tuple2', _0: 'text-decoration', _1: 'none'},
+			{ctor: '_Tuple2', _0: 'background-color', _1: '#F44336'},
+			{ctor: '_Tuple2', _0: 'width', _1: '40%'},
+			{ctor: '_Tuple2', _0: 'height', _1: '40px'},
+			{ctor: '_Tuple2', _0: 'padding', _1: '10px 0'},
+			{ctor: '_Tuple2', _0: 'font-size', _1: '1em'},
+			{ctor: '_Tuple2', _0: 'text-align', _1: 'center'}
+		]));
+var _user$project$Style$toolBoxStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'width', _1: '100%'},
+			{ctor: '_Tuple2', _0: 'height', _1: '40px'},
+			{ctor: '_Tuple2', _0: 'padding', _1: '10px 0'},
+			{ctor: '_Tuple2', _0: 'font-size', _1: '1em'},
+			{ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
+			{ctor: '_Tuple2', _0: 'margin', _1: '0 auto'}
+		]));
+var _user$project$Style$symbolColor = '#ffffff';
+var _user$project$Style$strokeWidthSize = 20;
+var _user$project$Style$defaultTileBg = '#9F9F9F';
+var _user$project$Style$winTileBg = '#2bbbad';
+var _user$project$UI$px = function (v) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Basics$toString(v),
+		'px');
+};
+var _user$project$UI$Landscape = {ctor: 'Landscape'};
+var _user$project$UI$Portrait = {ctor: 'Portrait'};
+var _user$project$UI$screenOrientation = function (size) {
+	return (_elm_lang$core$Native_Utils.cmp(size.width, size.height) < 0) ? _user$project$UI$Portrait : _user$project$UI$Landscape;
+};
+var _user$project$UI$windowSize = function (size) {
+	var _p0 = _user$project$UI$screenOrientation(size);
+	if (_p0.ctor === 'Portrait') {
+		return size.width - 33;
+	} else {
+		return size.height - 33;
+	}
+};
+var _user$project$UI$tileSize = function (size) {
+	var _p1 = _user$project$UI$screenOrientation(size);
+	if (_p1.ctor === 'Portrait') {
+		return ((size.width / 3) | 0) - 11;
+	} else {
+		return ((size.height / 3) | 0) - 11;
+	}
+};
+var _user$project$UI$boxAlign = function (size) {
+	var _p2 = _user$project$UI$screenOrientation(size);
+	if (_p2.ctor === 'Portrait') {
+		return {ctor: '_Tuple2', _0: 'float', _1: 'none'};
+	} else {
+		return {ctor: '_Tuple2', _0: 'float', _1: 'left'};
+	}
+};
+var _user$project$Main$statusToMessage = function (status) {
+	var _p0 = status;
+	switch (_p0.ctor) {
+		case 'Default':
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_List.fromArray(
+					[
+						{ctor: '_Tuple2', _0: 'color', _1: '#F57F17'}
+					]),
+				_1: 'Click on tiles to start...'
+			};
+		case 'LastMove':
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_List.fromArray(
+					[
+						{ctor: '_Tuple2', _0: 'color', _1: '#2bbbad'}
+					]),
+				_1: A2(_elm_lang$core$Basics_ops['++'], 'LastMove - ', _p0._0)
+			};
+		case 'NotValidMove':
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_List.fromArray(
+					[
+						{ctor: '_Tuple2', _0: 'color', _1: '#E57373'}
+					]),
+				_1: A2(_elm_lang$core$Basics_ops['++'], 'Exception - ', _p0._0)
+			};
+		case 'GameResult':
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_List.fromArray(
+					[
+						{ctor: '_Tuple2', _0: 'color', _1: '#2bbbad'}
+					]),
+				_1: A2(_elm_lang$core$Basics_ops['++'], 'Result - ', _p0._0)
+			};
+		default:
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_List.fromArray(
+					[
+						{ctor: '_Tuple2', _0: 'color', _1: '#E57373'}
+					]),
+				_1: A2(_elm_lang$core$Basics_ops['++'], 'Error - ', _p0._0)
+			};
+	}
+};
+var _user$project$Main$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {cells: a, status: b, nextPlayer: c, boardType: d, lastMove: e, size: f};
+	});
+var _user$project$Main$modelInit = A6(
+	_user$project$Main$Model,
+	_user$project$Api$defaultCells,
+	_user$project$Api$Default,
+	_user$project$Api$PlayerO,
+	_user$project$Api$EmptyBoard(_user$project$Api$defaultCells),
+	{ctor: '_Tuple2', _0: 0, _1: 0},
+	A2(_elm_lang$window$Window$Size, 0, 0));
 var _user$project$Main$Reset = {ctor: 'Reset'};
+var _user$project$Main$toolBox = function (model) {
+	var gameStatus = _user$project$Main$statusToMessage(
+		A2(_user$project$Api$buildStatusFromResult, model.boardType, model.lastMove));
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[_user$project$Style$toolBoxStyle]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$button,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$Style$buttonStyle,
+						_elm_lang$html$Html_Events$onClick(_user$project$Main$Reset)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('New')
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$style(
+						_elm_lang$core$Basics$fst(gameStatus))
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$span,
+						_elm_lang$core$Native_List.fromArray(
+							[_user$project$Style$notificationStyle]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text(
+								_elm_lang$core$Basics$snd(gameStatus))
+							]))
+					]))
+			]));
+};
 var _user$project$Main$Resize = function (a) {
 	return {ctor: 'Resize', _0: a};
 };
 var _user$project$Main$sizeTask = A3(_elm_lang$core$Task$perform, _user$project$Main$Resize, _user$project$Main$Resize, _elm_lang$window$Window$size);
 var _user$project$Main$update = F2(
 	function (msg, model) {
-		var _p15 = msg;
-		switch (_p15.ctor) {
+		var _p1 = msg;
+		switch (_p1.ctor) {
 			case 'Played':
-				var _p17 = _p15._0;
-				var _p16 = model.boardType;
-				switch (_p16.ctor) {
+				var _p3 = _p1._0;
+				var _p2 = model.boardType;
+				switch (_p2.ctor) {
 					case 'PlayBoard':
 						return {
 							ctor: '_Tuple2',
-							_0: A2(_user$project$Main$updateBoardModel, model, _p17),
+							_0: A2(_user$project$Api$updateBoardModel, model, _p3),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'EmptyBoard':
 						return {
 							ctor: '_Tuple2',
-							_0: A2(_user$project$Main$updateBoardModel, model, _p17),
+							_0: A2(_user$project$Api$updateBoardModel, model, _p3),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					case 'ErrorBoard':
+						return {
+							ctor: '_Tuple2',
+							_0: A2(_user$project$Api$updateBoardModel, model, _p3),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'TieBoard':
@@ -8584,8 +8674,8 @@ var _user$project$Main$update = F2(
 							_0: _elm_lang$core$Native_Utils.update(
 								model,
 								{
-									status: _user$project$Main$NotValidMove(
-										A2(_elm_lang$core$Basics_ops['++'], 'Game Over as match result :', _p16._1))
+									status: _user$project$Api$NotValidMove(
+										A2(_elm_lang$core$Basics_ops['++'], 'Game Over as match result :', _p2._1))
 								}),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
@@ -8595,8 +8685,8 @@ var _user$project$Main$update = F2(
 							_0: _elm_lang$core$Native_Utils.update(
 								model,
 								{
-									status: _user$project$Main$NotValidMove(
-										A2(_elm_lang$core$Basics_ops['++'], 'Game Over as match result :', _p16._1))
+									status: _user$project$Api$NotValidMove(
+										A2(_elm_lang$core$Basics_ops['++'], 'Game Over as match result :', _p2._1))
 								}),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
@@ -8606,7 +8696,7 @@ var _user$project$Main$update = F2(
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{size: _p15._0}),
+						{size: _p1._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			default:
@@ -8614,7 +8704,7 @@ var _user$project$Main$update = F2(
 		}
 	});
 var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Main$modelInit, _1: _user$project$Main$sizeTask};
-var _user$project$Main$subscriptions = function (_p18) {
+var _user$project$Main$subscriptions = function (_p4) {
 	return _elm_lang$core$Platform_Sub$batch(
 		_elm_lang$core$Native_List.fromArray(
 			[
@@ -8624,48 +8714,27 @@ var _user$project$Main$subscriptions = function (_p18) {
 var _user$project$Main$Played = function (a) {
 	return {ctor: 'Played', _0: a};
 };
-var _user$project$Main$Landscape = {ctor: 'Landscape'};
-var _user$project$Main$Portrait = {ctor: 'Portrait'};
-var _user$project$Main$screenOrientation = function (size) {
-	return (_elm_lang$core$Native_Utils.cmp(size.width, size.height) < 0) ? _user$project$Main$Portrait : _user$project$Main$Landscape;
-};
-var _user$project$Main$windowSize = function (size) {
-	var _p19 = _user$project$Main$screenOrientation(size);
-	if (_p19.ctor === 'Portrait') {
-		return size.width - 33;
-	} else {
-		return size.height - 33;
-	}
-};
-var _user$project$Main$tileSize = function (size) {
-	var _p20 = _user$project$Main$screenOrientation(size);
-	if (_p20.ctor === 'Portrait') {
-		return ((size.width / 3) | 0) - 11;
-	} else {
-		return ((size.height / 3) | 0) - 11;
-	}
-};
-var _user$project$Main$cellToTileBuilder = F3(
-	function (winSeq, model, cell) {
-		var symbolColor = '#ffffff';
+var _user$project$Main$mapCellToTile = F2(
+	function (model, cell) {
 		var boardBgColor = function () {
-			var _p21 = A2(_elm_lang$core$List$member, cell.position, winSeq);
-			if (_p21 === true) {
-				return '#2bbbad';
+			var _p5 = A2(
+				_elm_lang$core$List$member,
+				cell.position,
+				_user$project$Api$getWinnerBoardSequence(model.boardType));
+			if (_p5 === true) {
+				return _user$project$Style$winTileBg;
 			} else {
-				return '#9F9F9F';
+				return _user$project$Style$defaultTileBg;
 			}
 		}();
-		var initialVal = 100;
-		var strokeWidthSize = 20;
-		var size = _user$project$Main$tileSize(model.size);
-		var times = (size / initialVal) | 0;
+		var size = _user$project$UI$tileSize(model.size);
+		var times = (size / 100) | 0;
 		var xVal = _elm_lang$core$Basics$fst(cell.position) * size;
 		var yVal = _elm_lang$core$Basics$snd(cell.position) * size;
 		var w = model.size.width;
 		var h = model.size.height;
-		var _p22 = cell.player;
-		switch (_p22.ctor) {
+		var _p6 = cell.player;
+		switch (_p6.ctor) {
 			case 'PlayerO':
 				return A2(
 					_elm_lang$svg$Svg$g,
@@ -8677,11 +8746,11 @@ var _user$project$Main$cellToTileBuilder = F3(
 							_elm_lang$svg$Svg$rect,
 							_elm_lang$core$Native_List.fromArray(
 								[
-									_user$project$Main$cellStyle,
+									_user$project$Style$cellStyle,
 									_elm_lang$html$Html_Events$onClick(
 									_user$project$Main$Played(cell.position)),
 									_elm_lang$svg$Svg_Attributes$fill(boardBgColor),
-									_elm_lang$svg$Svg_Attributes$stroke(symbolColor),
+									_elm_lang$svg$Svg_Attributes$stroke(_user$project$Style$symbolColor),
 									_elm_lang$svg$Svg_Attributes$x(
 									_elm_lang$core$Basics$toString(xVal)),
 									_elm_lang$svg$Svg_Attributes$y(
@@ -8699,7 +8768,7 @@ var _user$project$Main$cellToTileBuilder = F3(
 								[
 									_elm_lang$html$Html_Events$onClick(
 									_user$project$Main$Played(cell.position)),
-									_elm_lang$svg$Svg_Attributes$fill(symbolColor),
+									_elm_lang$svg$Svg_Attributes$fill(_user$project$Style$symbolColor),
 									_elm_lang$svg$Svg_Attributes$cx(
 									_elm_lang$core$Basics$toString((xVal + ((size / 2) | 0)) + times)),
 									_elm_lang$svg$Svg_Attributes$cy(
@@ -8737,11 +8806,11 @@ var _user$project$Main$cellToTileBuilder = F3(
 							_elm_lang$svg$Svg$rect,
 							_elm_lang$core$Native_List.fromArray(
 								[
-									_user$project$Main$cellStyle,
+									_user$project$Style$cellStyle,
 									_elm_lang$html$Html_Events$onClick(
 									_user$project$Main$Played(cell.position)),
 									_elm_lang$svg$Svg_Attributes$fill(boardBgColor),
-									_elm_lang$svg$Svg_Attributes$stroke(symbolColor),
+									_elm_lang$svg$Svg_Attributes$stroke(_user$project$Style$symbolColor),
 									_elm_lang$svg$Svg_Attributes$x(
 									_elm_lang$core$Basics$toString(
 										_elm_lang$core$Basics$fst(cell.position) * size)),
@@ -8769,9 +8838,9 @@ var _user$project$Main$cellToTileBuilder = F3(
 									_elm_lang$core$Basics$toString(xVal + (size - 30))),
 									_elm_lang$svg$Svg_Attributes$y2(
 									_elm_lang$core$Basics$toString(yVal + (size - 30))),
-									_elm_lang$svg$Svg_Attributes$stroke(symbolColor),
+									_elm_lang$svg$Svg_Attributes$stroke(_user$project$Style$symbolColor),
 									_elm_lang$svg$Svg_Attributes$strokeWidth(
-									_elm_lang$core$Basics$toString(strokeWidthSize))
+									_elm_lang$core$Basics$toString(_user$project$Style$strokeWidthSize))
 								]),
 							_elm_lang$core$Native_List.fromArray(
 								[])),
@@ -8789,9 +8858,9 @@ var _user$project$Main$cellToTileBuilder = F3(
 									_elm_lang$core$Basics$toString(xVal + (size - 30))),
 									_elm_lang$svg$Svg_Attributes$y2(
 									_elm_lang$core$Basics$toString(yVal + ((size / 5) | 0))),
-									_elm_lang$svg$Svg_Attributes$stroke(symbolColor),
+									_elm_lang$svg$Svg_Attributes$stroke(_user$project$Style$symbolColor),
 									_elm_lang$svg$Svg_Attributes$strokeWidth(
-									_elm_lang$core$Basics$toString(strokeWidthSize))
+									_elm_lang$core$Basics$toString(_user$project$Style$strokeWidthSize))
 								]),
 							_elm_lang$core$Native_List.fromArray(
 								[]))
@@ -8801,10 +8870,10 @@ var _user$project$Main$cellToTileBuilder = F3(
 					_elm_lang$svg$Svg$rect,
 					_elm_lang$core$Native_List.fromArray(
 						[
-							_user$project$Main$cellStyle,
+							_user$project$Style$cellStyle,
 							_elm_lang$html$Html_Events$onClick(
 							_user$project$Main$Played(cell.position)),
-							_elm_lang$svg$Svg_Attributes$fill(symbolColor),
+							_elm_lang$svg$Svg_Attributes$fill(_user$project$Style$symbolColor),
 							_elm_lang$svg$Svg_Attributes$stroke(boardBgColor),
 							_elm_lang$svg$Svg_Attributes$x(
 							_elm_lang$core$Basics$toString(
@@ -8821,109 +8890,57 @@ var _user$project$Main$cellToTileBuilder = F3(
 						[]));
 		}
 	});
-var _user$project$Main$drawTilesFromCells = F2(
-	function (model, winSeq) {
-		return A2(
-			_elm_lang$core$List$map,
-			A2(_user$project$Main$cellToTileBuilder, winSeq, model),
-			model.cells);
-	});
-var _user$project$Main$view = function (model) {
-	var boxStyle = function () {
-		var _p23 = _user$project$Main$screenOrientation(model.size);
-		if (_p23.ctor === 'Portrait') {
-			return {ctor: '_Tuple2', _0: 'float', _1: 'none'};
-		} else {
-			return {ctor: '_Tuple2', _0: 'float', _1: 'left'};
-		}
-	}();
-	var margin = {ctor: '_Tuple2', _0: 'margin', _1: '5px'};
-	var notificationResponse = _user$project$Main$statusNotification(
-		A2(_user$project$Main$buildStatusFromResult, model.boardType, model.lastMove));
-	var winnerTiles = function () {
-		var _p24 = model.boardType;
-		if (_p24.ctor === 'WinBoard') {
-			return _p24._2;
-		} else {
-			return _elm_lang$core$Native_List.fromArray(
-				[]);
-		}
-	}();
+var _user$project$Main$drawBoard = function (model) {
+	return A2(
+		_elm_lang$core$List$map,
+		_user$project$Main$mapCellToTile(model),
+		model.cells);
+};
+var _user$project$Main$boardBox = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
 			[
 				_elm_lang$html$Html_Attributes$style(
 				_elm_lang$core$Native_List.fromArray(
-					[margin]))
+					[
+						_user$project$UI$boxAlign(model.size)
+					]))
 			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
 				A2(
-				_elm_lang$html$Html$div,
+				_elm_lang$svg$Svg$svg,
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html_Attributes$style(
-						_elm_lang$core$Native_List.fromArray(
-							[boxStyle]))
+						_user$project$Style$boardBoxStyle,
+						_elm_lang$svg$Svg_Attributes$version('1.1'),
+						_elm_lang$svg$Svg_Attributes$x('0'),
+						_elm_lang$svg$Svg_Attributes$y('0'),
+						_elm_lang$svg$Svg_Attributes$viewBox('0 0'),
+						_elm_lang$svg$Svg_Attributes$width(
+						_user$project$UI$px(
+							_user$project$UI$windowSize(model.size))),
+						_elm_lang$svg$Svg_Attributes$height(
+						_user$project$UI$px(
+							_user$project$UI$windowSize(model.size)))
 					]),
+				_user$project$Main$drawBoard(model))
+			]));
+};
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$style(
 				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						_elm_lang$svg$Svg$svg,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_user$project$Main$boardStyle,
-								_elm_lang$svg$Svg_Attributes$version('1.1'),
-								_elm_lang$svg$Svg_Attributes$x('0'),
-								_elm_lang$svg$Svg_Attributes$y('0'),
-								_elm_lang$svg$Svg_Attributes$viewBox('0 0'),
-								_elm_lang$svg$Svg_Attributes$width(
-								_user$project$Main$px(
-									_user$project$Main$windowSize(model.size))),
-								_elm_lang$svg$Svg_Attributes$height(
-								_user$project$Main$px(
-									_user$project$Main$windowSize(model.size)))
-							]),
-						A2(_user$project$Main$drawTilesFromCells, model, winnerTiles))
-					])),
-				A2(
-				_elm_lang$html$Html$div,
-				_elm_lang$core$Native_List.fromArray(
-					[_user$project$Main$toolStyle]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						_elm_lang$html$Html$button,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_user$project$Main$buttonStyle,
-								_elm_lang$html$Html_Events$onClick(_user$project$Main$Reset)
-							]),
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_elm_lang$html$Html$text('New')
-							])),
-						A2(
-						_elm_lang$html$Html$div,
-						_elm_lang$core$Native_List.fromArray(
-							[
-								_elm_lang$html$Html_Attributes$style(
-								_elm_lang$core$Basics$fst(notificationResponse))
-							]),
-						_elm_lang$core$Native_List.fromArray(
-							[
-								A2(
-								_elm_lang$html$Html$span,
-								_elm_lang$core$Native_List.fromArray(
-									[_user$project$Main$notificationStyle]),
-								_elm_lang$core$Native_List.fromArray(
-									[
-										_elm_lang$html$Html$text(
-										_elm_lang$core$Basics$snd(notificationResponse))
-									]))
-							]))
-					]))
+					[_user$project$Style$margin]))
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_user$project$Main$boardBox(model),
+				_user$project$Main$toolBox(model)
 			]));
 };
 var _user$project$Main$main = {
