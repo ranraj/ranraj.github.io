@@ -15171,7 +15171,6 @@ var _myrho$dive$Parts_PartModel$modelCodeFrame = {
 			{ctor: '_Tuple2', _0: -4.69e-2, _1: 0.391})),
 	_1: {ctor: '[]'}
 };
-var _myrho$dive$Parts_PartModel$frames = _myrho$dive$Parts_PartModel$modelCodeFrame;
 var _myrho$dive$Parts_PartModel$helloWorldExplained = {
 	ctor: '::',
 	_0: A2(
@@ -15273,7 +15272,7 @@ var _myrho$dive$Parts_PartModel$profession = {
 				_myrho$dive$Dive$image,
 				{ctor: '_Tuple2', _0: 15, _1: 15},
 				{ctor: '_Tuple2', _0: -5, _1: -30},
-				'computer.png'),
+				'http://ranraj.github.io/images/computer.png'),
 			_1: {ctor: '[]'}
 		}
 	}
@@ -15282,6 +15281,43 @@ var _myrho$dive$Parts_PartModel$helloWorldHeight = 1 / 750;
 var _myrho$dive$Parts_PartModel$helloWorldWidth = 1 / 750;
 var _myrho$dive$Parts_PartModel$helloWorldPosY = 0.32;
 var _myrho$dive$Parts_PartModel$helloWorldPosX = 0;
+var _myrho$dive$Parts_PartModel$frames = A2(
+	_elm_lang$core$Basics_ops['++'],
+	_myrho$dive$Parts_PartModel$modelFrame,
+	A2(
+		_elm_lang$core$Basics_ops['++'],
+		A2(
+			_elm_lang$core$List$map,
+			A2(
+				_myrho$dive$Dive$transformFrame,
+				{ctor: '_Tuple2', _0: _myrho$dive$Parts_PartModel$helloWorldWidth, _1: _myrho$dive$Parts_PartModel$helloWorldHeight},
+				{ctor: '_Tuple2', _0: _myrho$dive$Parts_PartModel$helloWorldPosX, _1: _myrho$dive$Parts_PartModel$helloWorldPosY}),
+			_myrho$dive$Parts_PartModel$professionFrames),
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_myrho$dive$Parts_PartModel$helloWorldExplained,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_myrho$dive$Parts_PartModel$wholeModelFrame,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_myrho$dive$Parts_PartModel$objectsFrame,
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_myrho$dive$Parts_PartModel$objectsFrameContent,
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_myrho$dive$Parts_PartModel$wholeModelFrame,
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								_myrho$dive$Parts_PartModel$framesFrame,
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_myrho$dive$Parts_PartModel$animationFrame,
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										_myrho$dive$Parts_PartModel$animationFrameContent,
+										A2(_elm_lang$core$Basics_ops['++'], _myrho$dive$Parts_PartModel$wholeModelFrame, _myrho$dive$Parts_PartModel$modelCodeFrame)))))))))));
 var _myrho$dive$Parts_PartModel$lineHeight_ = 1.3;
 var _myrho$dive$Parts_PartModel$professionText = {
 	ctor: '::',
@@ -15856,7 +15892,7 @@ var _myrho$dive$Parts_PartUpdate$image_art = F2(
 			_myrho$dive$Dive$image,
 			{ctor: '_Tuple2', _0: 131.6, _1: 180.6},
 			{ctor: '_Tuple2', _0: -800, _1: 800},
-			'my_arts.jpg');
+			'http://ranraj.github.io/images/my_arts.jpg');
 	});
 var _myrho$dive$Parts_PartUpdate$updateText = F2(
 	function (x, y) {
@@ -16001,7 +16037,6 @@ var _myrho$dive$Parts_PartUpdate$world = _myrho$dive$Dive$group(
 			}
 		}));
 
-var _myrho$dive$Parts_PartArch$frames = {ctor: '[]'};
 var _myrho$dive$Parts_PartArch$archFrame = A2(
 	_myrho$dive$Dive$duration,
 	1000,
@@ -16009,6 +16044,21 @@ var _myrho$dive$Parts_PartArch$archFrame = A2(
 		_myrho$dive$Dive$frame,
 		{ctor: '_Tuple2', _0: 14, _1: 14},
 		{ctor: '_Tuple2', _0: 3, _1: -6}));
+var _myrho$dive$Parts_PartArch$frames = {
+	ctor: '::',
+	_0: _myrho$dive$Parts_PartArch$archFrame,
+	_1: {
+		ctor: '::',
+		_0: A2(
+			_myrho$dive$Dive$duration,
+			1000,
+			A2(
+				_myrho$dive$Dive$frame,
+				{ctor: '_Tuple2', _0: 19, _1: 19},
+				{ctor: '_Tuple2', _0: 58, _1: 15})),
+		_1: {ctor: '[]'}
+	}
+};
 var _myrho$dive$Parts_PartArch$subCode = '\n# Additionally\nSchool \n- School People leader during (High School)\n- Artist (Pencil and Acrylic art) \n    - Won District First\n    - Part time Earning\n      - Wall writting and Banners\nCollege\n- NCC Navy \n    - Best Cadet of INS BETWA \n      - NCC CAMP - Mumbai\n- Worked as ID card designer (Partime)\n';
 var _myrho$dive$Parts_PartArch$subText = F2(
 	function (x, y) {
