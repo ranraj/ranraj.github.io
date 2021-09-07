@@ -1,0 +1,62 @@
+[
+     {
+          "id": "9hjh",
+          "position": "869,144",
+          "note": {
+               "id": "9hjh",
+               "done": false,
+               "title": "Welcome notes",
+               "description": "Add Topics"
+          },
+          "clicked": false,
+          "color": "#91b1fd"
+     },
+     {
+          "id": "6Addin",
+          "position": "460,225",
+          "note": {
+               "id": "6Addin",
+               "done": true,
+               "title": "Adding new notes",
+               "description": "yes"
+          },
+          "clicked": false,
+          "color": "#c2d421"
+     },
+     {
+          "id": "4Hot t",
+          "position": "143,161",
+          "note": {
+               "id": "4Hot t",
+               "done": false,
+               "title": "Hot trend",
+               "description": "trend1"
+          },
+          "clicked": false,
+          "color": null
+     },
+     {
+          "id": "5Welco",
+          "position": "940,382",
+          "note": {
+               "id": "5Welco",
+               "done": false,
+               "title": "Welcome boys",
+               "description": "One"
+          },
+          "clicked": false,
+          "color": "#fec685"
+     },
+     {
+          "id": "14Hot ",
+          "position": "147,506",
+          "note": {
+               "id": "14Hot ",
+               "done": false,
+               "title": "Hot ",
+               "description": "Burger"
+          },
+          "clicked": false,
+          "color": "#fdb9fd"
+     }
+]
